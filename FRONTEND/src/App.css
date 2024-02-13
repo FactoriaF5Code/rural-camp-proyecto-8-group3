@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Saira", sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+:root {
+    --font-family: "Ubuntu", sans-serif;
+    --color-darkgreen: #075B39;
+    --color-green: #11A468;
+    --color-lightgreen: #47C234;
+    --color-mint: #DCE8DA;
+}
