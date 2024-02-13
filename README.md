@@ -8,4 +8,6 @@
 |--------|-------------|
 |  main  | Rama principal. Aquí alojamos solo los resultados finales de cada historia de usuario  |
 |  dev  | Rama de desarrollo. Aquí juntamos el trabajo individual |
+| pruebaDB | Rama de testeo para base de datos Oliver |
+
 
