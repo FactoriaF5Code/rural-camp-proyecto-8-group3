@@ -10,5 +10,3 @@
 |  dev  | Rama de desarrollo. Aquí juntamos el trabajo individual |
 | pruebaDB | Rama de testeo para base de datos Oliver |
 | frontend | Inicialización del frontend por Jose y San |
-
-
