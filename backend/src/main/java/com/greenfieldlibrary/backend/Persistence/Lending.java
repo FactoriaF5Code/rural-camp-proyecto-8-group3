@@ -1,4 +1,4 @@
-package com.greenfieldlibrary.backend.Persistence;
+package com.greenfieldlibrary.backend.persistence;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Lending {
+public class lending {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

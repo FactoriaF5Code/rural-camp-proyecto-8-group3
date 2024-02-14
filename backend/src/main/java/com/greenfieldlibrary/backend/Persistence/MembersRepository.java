@@ -1,4 +1,4 @@
-package com.greenfieldlibrary.backend.Persistence;
+package com.greenfieldlibrary.backend.persistence;
 
 public class MembersRepository {
 
