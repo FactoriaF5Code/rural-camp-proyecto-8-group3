@@ -1,13 +1,10 @@
 package com.greenfieldlibrary.backend.persistence;
 
-import java.lang.reflect.Member;
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public class MembersRepository {
-
-    public List<Member> findAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findAll'");
-    }
+@Repository
+public interface MembersRepository extends JpaRepository<Members, Long>{
 
 }
+
