@@ -5,4 +5,11 @@ header {
 
 header img{
     max-width: 300px;
+    margin-bottom: 1.5rem;
+}
+
+header h1{
+    color: var(--color-darkgreen);
+    font-size: 14px;
+    font-weight: 400;
 }

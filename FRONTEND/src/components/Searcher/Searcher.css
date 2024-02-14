@@ -46,6 +46,7 @@
     display: flex;
     align-items: center;
     margin-right: 0.8rem;
+    cursor: pointer;
 }
 
 .searchContainer__Field-Button img{
