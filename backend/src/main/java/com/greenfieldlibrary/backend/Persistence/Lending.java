@@ -6,7 +6,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-public class lending {
+public class Lending {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
