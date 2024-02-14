@@ -1,0 +1,21 @@
+.searchContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.searchContainer__Field{
+    width: 60rem;
+    height: 5rem;
+    border-radius: 0.5rem;
+    border:1px solid #ACACAC;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+
+.searchContainer__Field-Input{
+    border: none;
+    outline: none;
+}
