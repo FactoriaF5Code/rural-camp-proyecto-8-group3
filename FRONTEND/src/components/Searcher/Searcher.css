@@ -7,24 +7,42 @@
 
 .searchContainer__Field{
     width: 60rem;
-    height: 5rem;
     border-radius: 0.5rem;
     border:1px solid #ACACAC;
     background-color: white;
     display: flex;
     align-items: center;
     gap:1rem;
-    padding:0 1rem;
+    padding:0 0.2rem;
+}
+
+.searchContainer__Field-icon {
+    display: flex;
+    align-items: center;
 }
 
 .searchContainer__Field-icon img{
     background-color: var(--color-darkgreen);
     padding: 0.8rem;
-    margin:2px;
+    margin: 0.2rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
 }
 
 .searchContainer__Field-Input{
     border: none;
-    outline: 1px solid red;
     width: 100%;
+}
+
+.searchContainer__Field-Button{
+    border: none;
+    outline: none;
+    background: none;
+    display: flex;
+    align-items: center;
+    margin-right: 0.8rem;
+}
+
+.searchContainer__Field-Button img{
+    width: 2.5rem;
 }
