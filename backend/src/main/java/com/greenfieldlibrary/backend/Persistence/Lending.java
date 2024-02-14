@@ -3,14 +3,18 @@ package com.greenfieldlibrary.backend.persistence;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
-public class Members {
+public class Lending {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idMember;
-    private String name;
-    private String last_name;
-    private String email;
-    private String phone;
+    private Long id;
+    @ManyToOne
+    private Books idBooks;
+    @ManyToOne
+    private Members idMembers;
+    private Date dateLending;
+    private Date dateReturn;
+
 }

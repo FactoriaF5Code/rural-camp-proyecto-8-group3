@@ -1,13 +1,16 @@
 package com.greenfieldlibrary.backend.persistence;
 
-import java.lang.reflect.Member;
 import java.util.List;
 
-public class MembersRepository {
+import com.greenfieldlibrary.backend.controllers.Book;
 
-    public List<Member> findAll() {
+public class BooksRepository
+
+public List<Book> findAll() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
-    }
+    }extends
+
+    {
 
 }
