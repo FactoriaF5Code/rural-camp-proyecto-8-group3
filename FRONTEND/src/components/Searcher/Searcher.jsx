@@ -1,4 +1,3 @@
-// import { BookIcon } from '../../svg/BookIcon'
 import './Searcher.css';
 
 export const Searcher = () => {
