@@ -20,7 +20,7 @@ public class LendingsController {
     @Autowired
     private LendingRepository lendingRepository;
 
-@PostMapping
+    // @PostMapping
 public ResponseEntity<Lending>createLending(@RequestBody Lending lending){
     try {
         Lending newLending=lendingRepository.save(lending);

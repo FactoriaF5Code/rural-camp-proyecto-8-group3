@@ -23,14 +23,14 @@ public class BooksController {
         return booksRepository.findAll();
     }
 
-    @GetMapping("/api/books/{id}") // metodo para un libro por id//
-    public ResponseEntity<Book> getBookById(@PathVariable("id") Long id) {
-        Optional<Book> bookOptional = booksRespository.findById(id);
-        if (bookOptional.isPresent()) {
-            return ResponseEntity.ok(bookOptional.get());
+// @GetMapping("/api/books/{id}") // metodo para un libro por id//
+// public ResponseEntity<Book> getBookById(@PathVariable("id") Long id) {
+// Optional<Book> bookOptional = booksRespository.findById(id);
+// if (bookOptional.isPresent()) {
+// return ResponseEntity.ok(bookOptional.get());
 
-        } else {
-            return ResponseEntity.notFound().build();
-        }
-    }
-}
+// } else {
+// return ResponseEntity.notFound().build();
+// }
+// }
+// }
