@@ -19,6 +19,6 @@ html {
 }
 
 body{
-    background-image: url(/public/background-tile.svg);
+    background-image: url(/src/assets/background-tile.svg);
     background-size: 150px;
 }

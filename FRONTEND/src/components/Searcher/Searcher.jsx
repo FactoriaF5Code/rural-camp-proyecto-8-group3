@@ -1,12 +1,12 @@
-import { BookIcon } from '../../svg/BookIcon'
-import './Searcher.css'
+// import { BookIcon } from '../../svg/BookIcon'
+import './Searcher.css';
 
 export const Searcher = () => {
   return (
     <section className="searchContainer">
       <div className='searchContainer__Field'>
         <div className='searchContainer__Field-icon'> 
-          <BookIcon />
+          <img src="/src/assets/bookIcon.svg" alt="libro icono" />
         </div>
         <input
           type="search"

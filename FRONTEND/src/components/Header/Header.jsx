@@ -1,10 +1,11 @@
-import './header.css'
+import './Header.css'
+import logo from '../../assets/greenfield-logo.png';
 
 export const Header = () => {
   return (
     <>
       <header>
-          <img src="/public/greenfield-logo.png" alt="Greenfield Library logo" />
+          <img src={logo} alt="Greenfield Library logo" />
       </header>
     </>
   )
