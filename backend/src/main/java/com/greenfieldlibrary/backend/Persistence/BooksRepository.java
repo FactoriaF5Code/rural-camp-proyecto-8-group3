@@ -9,8 +9,5 @@ public class BooksRepository
 public List<Book> findAll() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'findAll'");
-    }extends
+    }
 
-    {
-
-}

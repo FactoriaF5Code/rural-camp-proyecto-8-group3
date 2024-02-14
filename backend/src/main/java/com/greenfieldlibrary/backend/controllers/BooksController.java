@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/books")
+
 public class BooksController {
 
     @Autowired
@@ -22,6 +22,14 @@ public class BooksController {
     public List<Book> getAllBooks() {
         return booksRepository.findAll();
     }
+}
+
+
+
+
+
+
+
 
 // @GetMapping("/api/books/{id}") // metodo para un libro por id//
 // public ResponseEntity<Book> getBookById(@PathVariable("id") Long id) {
