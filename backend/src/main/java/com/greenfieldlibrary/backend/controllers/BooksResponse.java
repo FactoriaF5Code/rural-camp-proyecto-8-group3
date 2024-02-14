@@ -6,6 +6,14 @@ public class BooksResponse {
     private String author;
     private String isbn;
     private String status;
+
+    public BooksResponse(Long idBooks, String title, String author, String isbn, String status) {
+        this.idBooks = idBooks;
+        this.title = title;
+        this.author = author;
+        this.isbn = isbn;
+        this.status = status;
+    }
     
     public Long getIdBooks() {
         return idBooks;
