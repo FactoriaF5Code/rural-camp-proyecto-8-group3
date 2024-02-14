@@ -4,6 +4,7 @@ import { LendingOk } from "../pages/Lending/LendingOk"
 import { NewMember } from "../pages/NewMember/NewMember"
 import { NewMemberOk } from "../pages/NewMember/NewMemberOk"
 import { ReturnOk } from "../pages/ReturnOk/ReturnOk"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export const AppRouter = () => {
   return (

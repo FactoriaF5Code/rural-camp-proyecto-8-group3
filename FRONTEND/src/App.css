@@ -13,3 +13,8 @@
     --color-lightgreen: #47C234;
     --color-mint: #DCE8DA;
 }
+
+body{
+    background-image: url(/public/background-tile.svg);
+    background-size: 150px;
+}
