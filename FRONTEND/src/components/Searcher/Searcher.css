@@ -52,3 +52,12 @@
 .searchContainer__Field-Button img{
     width: 2.5rem;
 }
+
+.toogleButton{
+    background-color: var(--color-darkgreen)!important;
+    color: var(--color-mint)!important;
+}
+
+.toogleIcon{
+    font-size: 3rem!important;
+}
