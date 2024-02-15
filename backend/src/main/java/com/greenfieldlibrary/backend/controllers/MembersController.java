@@ -31,7 +31,7 @@ public ResponseEntity<Member> addMember(@RequestBody MembersRequest membersReque
     MemberRepository.save(member);
 
     return new ResponseEntity<>(member, HttpStatus.CREATED);
-    
+
 
 
 
