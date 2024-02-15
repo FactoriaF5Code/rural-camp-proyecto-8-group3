@@ -6,16 +6,16 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Member {
+public class Members {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idMember;
     private String name;
     private String lastName;
     private String email;
-    private String phone;
+    private Integer phone;
 
-    public Member(Long idMember, String name, String lastName, String email, String phone) {
+    public Members(Long idMember, String name, String lastName, Integer phone, String email) {
         this.idMember = idMember;
         this.name = name;
         this.lastName = lastName;
@@ -24,7 +24,7 @@ public class Member {
     }
 
     // constructor vacio
-    public Member() {
+    public Members() {
     }
 
     // Getters y Setters
@@ -60,11 +60,11 @@ public class Member {
         this.email = email;
     }
 
-    public String getPhone() {
+    public Integer getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Integer phone) {
         this.phone = phone;
     }
 }
