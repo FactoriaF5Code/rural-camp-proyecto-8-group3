@@ -20,6 +20,14 @@ De cara a facilitar la vida al personal, se nos pide que, si es posible, proporc
 
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://chrome-ravioli-2d4.notion.site/Greenfield-Library-de82297c14754dcbb303cbbd07dd74bf)
 
+🛠️ Las funcionalidades básicas que cubre la aplicación web son las siguientes:
+-  Consultar la existencia de un libro en el catálogo.
+- Registrar el préstamo de un libro.
+- Registarar un nuevo socio de la biblioteca.
+- Verificar si una persona es socia.
+- Registrar la devolución de un libro.
+
+
 ## Tecnologías utilizadas
 
 ![Static Badge](https://img.shields.io/badge/Java-v%2017-green)
@@ -37,24 +45,51 @@ De cara a facilitar la vida al personal, se nos pide que, si es posible, proporc
 ![Static Badge](https://img.shields.io/badge/FrontendDep-MUI-red?logo=mui)
 
 
-## Planificación
+# Planificación
 Hemos utilizado Miro para crear tableros donde tener accesibles todos los documentos de planificación: historias de usuario, kanban y diagramas de flujo.
 
 [Ver TABLERO DE PLANIFICACIÓN ](https://miro.com/app/board/uXjVNv71U9E=/)
 
 ### Historias de usuario
 Historia de usuario 1
+
 ![lHistoria de usuario 1](/FRONTEND/public/hu1.png)
 
 Historia de usuario 2
+
 ![lHistoria de usuario 2](/FRONTEND/public/hu2.png)
 
 Historia de usuario 3
+
 ![lHistoria de usuario 5](/FRONTEND/public/hu3.png)
 
 Historia de usuario 4
+
 ![lHistoria de usuario 4](/FRONTEND/public/hu4.png)
 
 Historia de usuario 5
+
 ![lHistoria de usuario 5](/FRONTEND/public/hu5.png)
 
+## Vistas de la aplicación
+[Ver Prototipado con FIGMA](https://www.figma.com/file/Nvk7bk81hVoLORHvnWpjlD/Greenfield-Library?type=design&node-id=1%3A72&mode=design&t=7EFIZMEFp571UF2c-1)
+
+Home: Búsqueda de libros
+
+![lHome libros](/FRONTEND/public/Vista-HOME-Libros.png)
+
+Libros: Resultado de búsqueda
+
+![Búsqueda libros](/FRONTEND/public/Vista-Libro-resultados.png)
+
+Home: Búsqueda de socios
+
+![lHome usuarios](/FRONTEND/public/Vista-HOME-Usuarioss.png)
+
+Socios: Resultado de búsqueda
+
+![lHome usuarios](/FRONTEND/public/Vista-Usuario-resultados.png)
+
+Nuevo socio:
+
+![Nuevo socio](/FRONTEND/public/Vista-NuevoUsuario.png)
