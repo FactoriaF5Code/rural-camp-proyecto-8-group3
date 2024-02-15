@@ -1,6 +1,8 @@
 package com.greenfieldlibrary.backend.controllers;
 
 public class MembersRequest {
+
+
     private Long idMembers;
     private String name;
     private String lastName;
@@ -44,6 +46,14 @@ public class MembersRequest {
     }
 
     public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public MembersRequest(Long idMembers, String name, String lastName, String phone, String email) {
+        this.idMembers = idMembers;
+        this.name = name;
+        this.lastName = lastName;
+        this.phone = phone;
         this.email = email;
     }
 }

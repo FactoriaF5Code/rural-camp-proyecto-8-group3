@@ -15,16 +15,16 @@ public class Member {
     private String email;
     private String phone;
 
-    // constructor vacio
-    public Member() {
-    }
-
-    // Constructor con parámetros
-    public Member(String name, String lastName, String email, String phone) {
+    public Member(Long idMember, String name, String lastName, String email, String phone) {
+        this.idMember = idMember;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
         this.phone = phone;
+    }
+
+    // constructor vacio
+    public Member() {
     }
 
     // Getters y Setters
