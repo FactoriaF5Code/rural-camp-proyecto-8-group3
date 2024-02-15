@@ -18,10 +18,7 @@ public class BooksController {
     @Autowired
     private BooksRepository booksRepository;
 
-    @GetMapping // metodo para todos los libros//
-    public List<Book> getAllBooks() {
-        return booksRepository.findAll();
-    }
+    
 
 // @GetMapping("/api/books/{id}") // metodo para un libro por id//
 // public ResponseEntity<Book> getBookById(@PathVariable("id") Long id) {
