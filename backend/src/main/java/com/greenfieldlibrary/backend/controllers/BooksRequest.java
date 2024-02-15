@@ -1,6 +1,6 @@
 package com.greenfieldlibrary.backend.controllers;
 
-public class BooksResquest {
+public class BooksRequest {
     private Long idBooks;
     private String title;
     private String author;
@@ -38,7 +38,7 @@ public class BooksResquest {
         this.status = status;
     }
 
-    public BooksResquest(String title, String author, String isbn, String status) {
+    public BooksRequest(String title, String author, String isbn, String status) {
         this.title = title;
         this.author = author;
         this.isbn = isbn;
