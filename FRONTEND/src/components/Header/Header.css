@@ -1,6 +1,9 @@
 header {
     background-color: var(--color-mint)!important;
     padding:40px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header img{
