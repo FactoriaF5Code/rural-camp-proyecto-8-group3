@@ -5,10 +5,10 @@ public class MembersResponse {
     private Long idMembers;
     private String name;
     private String lastName;
-    private String phone;
+    private Integer phone;
     private String email;
 
-    public MembersResponse(Long idMembers, String name, String lastName, String phone, String email) {
+    public MembersResponse(Long idMembers, String name, String lastName, Integer phone, String email) {
         this.idMembers = idMembers;
         this.name = name;
         this.lastName = lastName;
@@ -40,11 +40,11 @@ public class MembersResponse {
         this.lastName = lastName;
     }
 
-    public String getphone() {
+    public Integer getphone() {
         return phone;
     }
 
-    public void setphone(String phone) {
+    public void setphone(Integer phone) {
         this.phone = phone;
     }
 

@@ -6,7 +6,7 @@ public class MembersRequest {
     private Long idMembers;
     private String name;
     private String lastName;
-    private String phone;
+    private Integer phone;
     private String email;
 
     public Long getIdMembers() {
@@ -33,11 +33,11 @@ public class MembersRequest {
         this.lastName = lastName;
     }
 
-    public String getPhone() {
+    public Integer getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(Integer phone) {
         this.phone = phone;
     }
 
@@ -49,7 +49,7 @@ public class MembersRequest {
         this.email = email;
     }
 
-    public MembersRequest(Long idMembers, String name, String lastName, String phone, String email) {
+    public MembersRequest(Long idMembers, String name, String lastName, Integer phone, String email) {
         this.idMembers = idMembers;
         this.name = name;
         this.lastName = lastName;
