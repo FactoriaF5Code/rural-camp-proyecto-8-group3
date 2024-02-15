@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.greenfieldlibrary.backend.persistence.Member;
 import com.greenfieldlibrary.backend.persistence.MemberRepository;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -30,30 +29,39 @@ public class MembersController {
 
     @GetMapping("/members")
     public ResponseEntity<List<Member>> getAllMembers() {
-        List<Member> members = memberRepository.findAll();
+        List<Member> members = repository.findAll();
         return new ResponseEntity<>(members, HttpStatus.OK);
     }
 
     @GetMapping("/members/{id}")
-    public ResponseEntity<Member> getMemberById(@PathVariable Long id) {
-        Optional<Member> member = memberRepository.findById(id);
+    public ResponseEntity<MembersResponse> getMemberById(@PathVariable Long id) {
+        Optional<Member> member = repository.findById(id);
         if (member.isPresent()) {
-            return new ResponseEntity<>(member, HttpStatus.OK);
+            Member existingMember = member.get();
+            MembersResponse membersResponse = new MembersResponse(existingMember.getIdMember(), existingMember.getName(), existingMember.getLastName(), existingMember.getPhone(), existingMember.getEmail());
+            return ResponseEntity.ok(membersResponse);
         } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+            return ResponseEntity.notFound().build();
         }
     }
 
     @PostMapping("/members")
-    public ResponseEntity<Member> addMember(@RequestBody MembersRequest membersRequest) {
-        Member member = new Member();
+    public MembersResponse createMember(@RequestBody MembersRequest request) {
+        Member member = new Member(
+                request.getIdMembers(),
+                request.getName(),
+                request.getLastName(),
+                request.getPhone(),
+                request.getEmail());
 
-        member.setLastName(membersRequest.getLastName());
-        member.setPhone(membersRequest.getPhone());
-        member.setEmail(membersRequest.getEmail());
-        memberRepository.save(member);
+        Member savedMember = repository.save(member);
 
-        return new ResponseEntity<>(member, HttpStatus.CREATED);
+        return new MembersResponse(
+                savedMember.getIdMember(),
+                savedMember.getName(),
+                savedMember.getLastName(),
+                savedMember.getPhone(),
+                savedMember.getEmail());
     }
 
 }
