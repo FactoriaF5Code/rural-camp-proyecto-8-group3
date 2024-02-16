@@ -9,5 +9,5 @@
 | main     | Rama principal. Aquí alojamos solo los resultados finales de cada historia de usuario |
 | dev      | Rama de desarrollo. Aquí juntamos el trabajo individual                               |
 | pruebaDB | Rama de testeo para base de datos Oliver
-| frontend | Inicialización del frontend por Jose y San                                            |
+| dev_frontend | Inicialización del frontend por Jose y San                                            |
 | métodos  | Rama para implementar los métodos                                                     |
