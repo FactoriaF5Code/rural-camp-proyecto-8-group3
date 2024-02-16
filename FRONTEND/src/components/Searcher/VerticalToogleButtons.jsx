@@ -3,29 +3,14 @@ import PersonIcon from '@mui/icons-material/Person';
 import CollectionsBookmarkIcon from '@mui/icons-material/CollectionsBookmark';
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
-export const VerticalToggleButtons = () => {
-  const [buttonActive, setButtonActive] = useState(false);
-  const [userButtonClicked, setUserButtonClicked] = useState(false);
-  const [booksButtonClicked, setBooksButtonClicked] = useState(false);
-
-
-  useEffect(() => {
-    // Cambia el estado de buttonActive a true cuando se carga la página
-    setButtonActive(true);
-  }, []);
-
-  // Maneja la clase del botón de libros de toogleButton a toggleButton-active
-  const handleUserButtonClick = () => {
-    setUserButtonClicked(true);
-  };
-
-  // Maneja la clase del botón de socios de toogleButton a toggleButton-active
-  const handleBooksButtonClick = () => {
-    setBooksButtonClicked(true);
-  };
-
+export const VerticalToggleButtons = ({
+  buttonActive,
+  userButtonClicked,
+  handleBooksButtonClick,
+  booksButtonClicked,
+  handleUserButtonClick}) => {
   return (
     <div>
       <ToggleButtonGroup
