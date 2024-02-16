@@ -1,6 +1,6 @@
 import "./Header.css";
 import logo from "../../assets/greenfield-logo.png";
-import { NewMember } from "../NewMember/NewMember";
+import { NewMemberButton } from "../NewMemberButton/NewMemberButton";
 
 export const Header = () => {
   return (
@@ -10,7 +10,7 @@ export const Header = () => {
           <img src={logo} alt="Greenfield Library logo" />
           <h1>Software de gestión de bibliotecas</h1>
         </div>
-        <NewMember />
+        <NewMemberButton />
       </header>
     </>
   );

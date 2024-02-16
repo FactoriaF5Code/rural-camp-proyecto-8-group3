@@ -1,6 +1,6 @@
-import './NewMember.css'
+import './NewMemberButton.css'
 
-export const NewMember = () => {
+export const NewMemberButton = () => {
   return (
     <button className="btn-new-member">+ Añadir nuevo socio</button>
   )
