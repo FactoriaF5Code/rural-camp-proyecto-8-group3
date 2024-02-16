@@ -21,12 +21,12 @@ public class LendingController {
     @PostMapping
     public LendingResponse createLending(@RequestBody LendingRequest request) {
         Lendings lending = new Lendings();
-        lending.setIdBook(request.getIdBook());
+        lending.setIdBooks(request.getIdBook());
         lending.setIdMember(request.getIdMember());
         lending.setDataLending(request.getDataLending());
-        lending.setDataReturno(request.getDataReturno());
+        lending.setDataReturn(request.getDataReturn());
         Lendings savedLending = lendingRepository.save(lending);
-        return new LendingResponse(savedLending.getId(), savedLending.getIdBook(), savedLending.getIdMember(), savedLending.getDataLending(), savedLending.getDataReturno());
+        return new LendingResponse(savedLending.getId(), savedLending.getIdBook(), savedLending.getIdMember(), savedLending.getDataLending(), savedLending.getDataReturn());
     }
 
     @DeleteMapping("/{id}")
