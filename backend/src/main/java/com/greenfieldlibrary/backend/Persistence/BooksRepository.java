@@ -1,5 +1,8 @@
-package com.greenfieldlibrary.backend.Persistence;
+package com.greenfieldlibrary.backend.persistence;
 
-public class BooksRepository extends {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-}
+@Repository
+public interface BooksRepository extends JpaRepository<Books, Long>{}    
+

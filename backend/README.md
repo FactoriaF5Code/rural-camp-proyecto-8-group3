@@ -7,7 +7,7 @@
 |   GET  | /api/members    | Mostrar todos los socios existentes.   |
 |   POST | /api/lendings   | Crea un nuevo préstamo. Hay que indicar los ids de libro y socio.   |
 |   POST | /api/members    | Añadir nuevo usuario a la base de datos.   |
-|   ???  | /api/lendings   | Retornar un libro (terminar el préstamo)   |
+|   DELETE  | /api/lendings   | Retornar un libro (terminar el préstamo)   |
 
 # SET UP
 
