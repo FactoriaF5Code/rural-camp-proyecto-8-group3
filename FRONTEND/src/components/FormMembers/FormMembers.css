@@ -1,5 +1,5 @@
 .Form {
-  margin-top: 2rem;
+  margin-top: 3rem;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@
 
 .Form__title {
   color: var(--color-darkgreen);
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 .formContainer {
   display: flex;
@@ -70,14 +70,20 @@
 ::placeholder {
   color: var(--color-grey);
 }
-.formContainer__button {
-  width: 20rem;
-  height: 5rem;
-  background-color: var(--color-green);
-  color: var(--color-white);
+
+.formContainer__button  {
+  width: 23rem;
+  height: 4.5rem;
   margin-top: 2rem;
-  cursor: pointer;
+  background-color: var(--color-green);
+  color: var(--color-mint);
+  text-transform:uppercase;
+  border-radius: .5rem;
   border: none;
-  border-radius: 0.5rem;
-  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.5s ease-in-out;
+}
+
+.formContainer__button:hover {
+  background-color: var(--color-lightgreen);
 }

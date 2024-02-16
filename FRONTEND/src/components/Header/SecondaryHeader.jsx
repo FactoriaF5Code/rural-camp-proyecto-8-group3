@@ -1,9 +1,8 @@
 import "./Header.css";
 import logo from "../../assets/greenfield-logo.png";
-import { NewMemberButton } from "../NewMemberButton/NewMemberButton";
 import { Link } from "react-router-dom";
 
-export const Header = () => {
+export const SecondaryHeader = () => {
   return (
     <>
       <header>
@@ -13,7 +12,7 @@ export const Header = () => {
           </Link>
           <h1>Software de gestión de bibliotecas</h1>
         </div>
-        <NewMemberButton />
+        <Link to="/" className="backButton">Volver a inicio</Link>
       </header>
     </>
   );
