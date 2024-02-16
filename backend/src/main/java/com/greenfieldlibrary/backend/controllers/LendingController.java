@@ -1,6 +1,5 @@
 package com.greenfieldlibrary.backend.controllers;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 
@@ -31,20 +30,20 @@ public class LendingController {
     @PostMapping("/lendings")
     public Lendings createLending(@RequestBody LendingsRequest request) {
 
-        if (request.getIdBooks() == null) {
+        if (request.getBookId() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Book ID not found");
-        } else if (request.getIdMember() == null) {
+        } else if (request.getMemberId() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Member ID not found");
         }
         // Buscar libro y miembro por ID
         // ...
-        Integer idBooks = request.getIdBooks(); // Asegura que es Integer
+        Integer idBooks = request.getBookId(); // Asegura que es Integer
         Books book = booksRepository.findById(idBooks)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Book not found"));
         // ...
 
         // ...
-        Integer idMember = request.getIdMember(); // Asegura que es Integer
+        Integer idMember = request.getMemberId(); // Asegura que es Integer
         Members member = membersRepository.findById(idMember)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Member not found"));
         // ...
