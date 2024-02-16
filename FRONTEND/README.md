@@ -14,3 +14,7 @@ Currently, two official plugins are available:
 - NewMember: "/nuevo-socio"
 - NewMemberOk: "/nuevo-socio-ok/{id}"
 - ReturnOk: "/devolucion-ok/{id}"
+
+# Tareas pendientes
+- Que al hacer clic en cualquier lugar de la pantalla no cambie el estilo del ToogleButton
+- Que al hacer clic de nuevo en ToogleButton de books vuelva a cambiar el placeholder.

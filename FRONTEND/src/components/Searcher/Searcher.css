@@ -12,22 +12,11 @@
     background-color: white;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap:1.5rem;
-    padding:0 0.2rem;
+    padding: 0.4rem 0.8rem 0.4rem 0.4rem;
 }
 
-.searchContainer__Field-icon {
-    display: flex;
-    align-items: center;
-}
-
-.searchContainer__Field-icon img{
-    background-color: var(--color-darkgreen);
-    padding: 0.8rem;
-    margin: 0.2rem 0;
-    border-top-left-radius: 0.5rem;
-    border-bottom-left-radius: 0.5rem;
-}
 
 .searchContainer__Field-Input{
     border: none;
@@ -45,10 +34,30 @@
     background: none;
     display: flex;
     align-items: center;
-    margin-right: 0.8rem;
+    margin: 0.8rem;
     cursor: pointer;
 }
 
 .searchContainer__Field-Button img{
     width: 2.5rem;
+}
+
+.toogleButton{
+    background-color: white!important;
+    color: #cacaca !important;
+    border:1px solid #ACACAC!important;
+}
+
+.toogleButton:focus {
+    background-color: var(--color-darkgreen)!important;
+    color: var(--color-mint)!important;
+}
+
+.toogleButton-active {
+    background-color: var(--color-darkgreen)!important;
+    color: var(--color-mint)!important;
+}
+
+.toogleIcon{
+    font-size: 3rem!important;
 }
