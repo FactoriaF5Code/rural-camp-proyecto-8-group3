@@ -1,4 +1,3 @@
-import { Header } from "../../components/Header/Header"
 import { SecondaryHeader } from "../../components/Header/SecondaryHeader"
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import './ReturnOk.css'

@@ -7,7 +7,9 @@ export const SecondaryHeader = () => {
     <>
       <header>
         <div>
-          <img src={logo} alt="Greenfield Library logo" />
+          <Link to="/">
+            <img src={logo} alt="Greenfield Library logo" />
+          </Link>
           <h1>Software de gestión de bibliotecas</h1>
         </div>
         <Link to="/" className="backButton">Volver a inicio</Link>

@@ -1,6 +1,7 @@
 import './Lending.css'
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { SecondaryHeader } from "../../components/Header/SecondaryHeader"
+import { Link } from 'react-router-dom';
 
 export const LendingOk = () => {
   return (
@@ -17,6 +18,9 @@ export const LendingOk = () => {
         </ul>
         <h2 className="lendingOk__title">a usuario con nº de socio:</h2>
         <p className='lendingOk__userNumber'>123456</p>
+        <Link to="/">
+          <button className="lendingOk_button">+ Registrar nuevo préstamo</button>
+        </Link>
       </section>
     </div>
     )
