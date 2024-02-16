@@ -14,6 +14,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.greenfieldlibrary.backend.persistence.LendingsRepository;
+import com.greenfieldlibrary.backend.persistence.Members;
+import com.greenfieldlibrary.backend.persistence.Books;
+import com.greenfieldlibrary.backend.persistence.BooksRepository;
 import com.greenfieldlibrary.backend.persistence.Lendings;
 
 @RestController
@@ -26,14 +29,32 @@ public class LendingController {
     @PostMapping
     public LendingResponse createLending(@RequestBody LendingRequest request) {
         Lendings lending = new Lendings();
-        lending.setIdBooks(request.getIdBooks());
-        lending.setIdMember(request.getIdMember());
+        // Obtención de Books (usando un repo que te facilite búsquedas en Spring)
+        Books book = BooksRepository.findById(request.getIdBooks())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Book not found"));
+
+        Members member = membersRepository.findById(request.getIdMember())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Member not found"));
+
+        Lendings lending = new Lendings();
+        lending.setBook(book);
+        lending.setMember(member);
+        // Establecer Book relacionado mediante el id
+        Books book = BooksRepository.findById(request.getIdBooks())
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Book not found"));
+        Members member = new Members();
+        member.setIdMember(request.getIdMember());
+        lending.setMember(member);
+
         lending.setDataLending(request.getDataLending());
         lending.setDataReturn(request.getDataReturn());
+
         Lendings savedLending = lendingsRepository.save(lending);
 
+        // Mapeo de propiedades como lo tenías originalmente
         return new LendingResponse(savedLending.getId(), savedLending.getId(),
-                savedLending.getIdBooks(), savedLending.getDataLending(),
+                savedLending.getBook().getIdBooks(), // obtener ID del libro mediante la relación
+                savedLending.getDataLending(),
                 savedLending.getDataReturn());
     }
 

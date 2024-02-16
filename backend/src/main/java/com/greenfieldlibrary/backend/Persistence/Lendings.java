@@ -7,6 +7,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,19 +19,14 @@ public class Lendings {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Lendings(Long id, Long idBooks, Long idMember, Date dataLending, Date dataReturn) {
-        this.id = id;
-        this.idBooks = idBooks;
-        this.idMember = idMember;
-        this.dataLending = dataLending;
-        this.dataReturn = dataReturn;
-    }
+    @ManyToOne
+    @JoinColumn(name = "id_books")  // Cambiamos "book" a "books"
+    private Books book;
+    
 
-    @Column(name = "id_books")
-    private Long idBooks;
-
-    @Column(name = "idMember")
-    private Long idMember;
+    @ManyToOne
+    @JoinColumn(name = "id_member")
+    private Members member;
 
     @Column(name = "data_lending")
     private Date dataLending;
@@ -37,9 +34,11 @@ public class Lendings {
     @Column(name = "data_return")
     private Date dataReturn;
 
+    // Constructor (vacío)
     public Lendings() {
     }
 
+    // Getters y Setters
     public Long getId() {
         return id;
     }
@@ -48,20 +47,20 @@ public class Lendings {
         this.id = id;
     }
 
-    public Long getIdBooks() {
-        return idBooks;
+    public Books getBook() {
+        return book;
     }
 
-    public void setIdBooks(Long idBooks) {
-        this.idBooks = idBooks;
+    public void setBook(Books book) {
+        this.book = book;
     }
 
-    public Long getIdMember() {
-        return idMember;
+    public Members getMember() {
+        return member;
     }
 
-    public void setIdMember(Long idMember) {
-        this.idMember = idMember;
+    public void setMember(Members member) {
+        this.member = member;
     }
 
     public Date getDataLending() {
@@ -79,5 +78,4 @@ public class Lendings {
     public void setDataReturn(Date dataReturn) {
         this.dataReturn = dataReturn;
     }
-
 }
