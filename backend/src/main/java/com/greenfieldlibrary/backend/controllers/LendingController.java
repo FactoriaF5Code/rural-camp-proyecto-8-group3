@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.greenfieldlibrary.backend.persistence.LendingsRepository;
-import com.greenfieldlibrary.backend.persistence.Lendings;  
+import com.greenfieldlibrary.backend.persistence.Lendings;
 
 @RestController
-@RequestMapping("/api/lending")
+@RequestMapping("/lendings")
 public class LendingController {
 
     @Autowired
@@ -25,26 +25,26 @@ public class LendingController {
 
     @PostMapping
     public LendingResponse createLending(@RequestBody LendingRequest request) {
-        Lendings lending = new Lendings();  
-        lending.setIdBooks(request.getIdBook()); // Verifica los nombres de campos
-        lending.setIdMembers(request.getIdMember());
+        Lendings lending = new Lendings();
+        lending.setIdBooks(request.getIdBooks());
+        lending.setIdMember(request.getIdMember());
         lending.setDataLending(request.getDataLending());
         lending.setDataReturn(request.getDataReturn());
         Lendings savedLending = lendingsRepository.save(lending);
 
-        return new LendingResponse(savedLending.getId(), savedLending.getIdBooks(), 
-                                   savedLending.getIdMembers(), savedLending.getDataLending(), 
-                                   savedLending.getDataReturn());
+        return new LendingResponse(savedLending.getId(), savedLending.getId(),
+                savedLending.getIdBooks(), savedLending.getDataLending(),
+                savedLending.getDataReturn());
     }
 
-    @DeleteMapping("/{id}") // No es necesario usar "/items/" 
+    @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteLendingById(@PathVariable Long id) {
-        Optional<Lending> optionalLending = lendingRepository.findById(id); 
+        Optional<Lendings> optionalLending = lendingsRepository.findById(id);
         if (optionalLending.isPresent()) {
-            lendingRepository.delete(optionalLending.get()); // Usa el repositorio
+            lendingsRepository.delete(optionalLending.get());
         } else {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Lending not found"); // Adapta el mensaje
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Lending not found");
         }
     }
 }

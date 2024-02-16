@@ -10,7 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "lending")
+@Table(name = "lendings")
 public class Lendings {
 
     @Id
@@ -25,16 +25,16 @@ public class Lendings {
         this.dataReturn = dataReturn;
     }
 
-    @Column(name = "id_book")
+    @Column(name = "id_books")
     private Long idBooks;
 
-    @Column(name = "id_member")
+    @Column(name = "idMember")
     private Long idMember;
 
     @Column(name = "data_lending")
     private Date dataLending;
 
-    @Column(name = "data_retorno")
+    @Column(name = "data_return")
     private Date dataReturn;
 
     public Lendings() {
@@ -48,11 +48,11 @@ public class Lendings {
         this.id = id;
     }
 
-    public Long getidBooks() {
+    public Long getIdBooks() {
         return idBooks;
     }
 
-    public void setidBooks(Long idBooks) {
+    public void setIdBooks(Long idBooks) {
         this.idBooks = idBooks;
     }
 
@@ -72,11 +72,11 @@ public class Lendings {
         this.dataLending = dataLending;
     }
 
-    public Date getdataReturn() {
+    public Date getDataReturn() {
         return dataReturn;
     }
 
-    public void setdataReturn(Date dataReturn) {
+    public void setDataReturn(Date dataReturn) {
         this.dataReturn = dataReturn;
     }
 

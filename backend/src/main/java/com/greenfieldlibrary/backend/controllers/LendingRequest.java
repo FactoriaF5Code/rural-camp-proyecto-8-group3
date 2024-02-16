@@ -4,21 +4,21 @@ import java.util.Date;
 
 public class LendingRequest {
 
-    private Long idBook;
+    private Long idBooks;
     private Long idMember;
     private Date dataLending;
-    private Date dataReturno;
-    public LendingRequest(Long idBook, Long idMember, Date dataLending, Date dataReturno) {
-        this.idBook = idBook;
+    private Date dataReturn;
+    public LendingRequest(Long idBooks, Long idMember, Date dataLending, Date dataReturn) {
+        this.idBooks = idBooks;
         this.idMember = idMember;
         this.dataLending = dataLending;
-        this.dataReturno = dataReturno;
+        this.dataReturn = dataReturn;
     }
-    public Long getIdBook() {
-        return idBook;
+    public Long getIdBooks() {
+        return idBooks;
     }
-    public void setIdBook(Long idBook) {
-        this.idBook = idBook;
+    public void setIdBooks(Long idBooks) {
+        this.idBooks = idBooks;
     }
     public Long getIdMember() {
         return idMember;
@@ -32,11 +32,11 @@ public class LendingRequest {
     public void setDataLending(Date dataLending) {
         this.dataLending = dataLending;
     }
-    public Date getDataReturno() {
-        return dataReturno;
+    public Date getDataReturn() {
+        return dataReturn;
     }
-    public void setDataReturno(Date dataReturno) {
-        this.dataReturno = dataReturno;
+    public void setDataReturn(Date dataReturn) {
+        this.dataReturn = dataReturn;
     }
 
 }
