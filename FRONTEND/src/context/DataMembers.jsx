@@ -1,23 +1,24 @@
-import { createContext, useContext, useState, useEffect } from "react";
 
+
+import { createContext, useContext, useState, useEffect } from "react";
+import axios from "axios";
 
 const DataMembersContext = createContext();
 
-
 export const DataMembersProvider = ({ children }) => {
-  const [Members, setMembers] = useState([]);
+  const [members, setMembers] = useState([]);
   const [needsReload, setNeedsReload] = useState(true);
   const URL = "http://localhost:9000/members";
 
-  const fetchData = async (URL) => {
+  const postMembers = async (newMember) => {
     try {
-      const response = await fetch(URL);
-      if (response.ok) {
-        const data = await response.json();
-        setMembers(data);
-        setNeedsReload(false);
+      const response = await axios.post(URL, newMember);
+
+      if (response.status === 201) {
+        console.log("Miembro agregado con éxito");
+        setNeedsReload(true); // Trigger reload after successful POST
       } else {
-        console.error("Error al obtener datos");
+        console.error("Error al agregar miembro");
       }
     } catch (error) {
       console.error("Error de red", error);
@@ -26,16 +27,20 @@ export const DataMembersProvider = ({ children }) => {
 
   useEffect(() => {
     if (needsReload) {
-      fetchData(URL);
+      // Realiza el código necesario si es necesario recargar datos desde la API
     }
   }, [needsReload]);
 
   const value = {
-    Members,
+    members,
+    setMembers,
     needsReload,
-    fetchData,
+    postMembers,
   };
 
-
   return <DataMembersContext.Provider value={value}>{children}</DataMembersContext.Provider>;
+};
+
+export const useDataMembers = () => {
+  return useContext(DataMembersContext);
 };
