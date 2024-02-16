@@ -1,24 +1,18 @@
 import { useState } from "react";
 import "./FormMembers.css";
+import { useDataMembers } from "../../context/DataMembersContext";
 
 export const FormMembers = () => {
-  const [usuario, setUsuario] = useState({
+  const { postMembers } = useDataMembers();
+  const [newMember, setNewMember] = useState({
     nombre: "",
     apellidos: "",
     telefono: "",
     correo: "",
   });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setUsuario((prevUsuario) => ({
-      ...prevUsuario,
-      [name]: value,
-    }));
-  };
-
-  const agregarUsuario = () => {
-    setUsuario({
+  const handleNewMember = () => {
+    postMembers(newMember);
+    setNewMember({
       nombre: "",
       apellidos: "",
       telefono: "",
@@ -30,33 +24,27 @@ export const FormMembers = () => {
     <div className="Form">
       <h2 className="Form__title">Crear nuevo usuario</h2>
       <form className="formContainer">
-      
-      <section className="formContainer__up">
-        <label htmlFor="formName">NOMBRE</label>
-        <input
-          className="formContainer__input-name"
-          type="text"
-          id="formName"
-          name="name"
-          placeholder="Nombre"
-          onChange={handleChange}
-          required
-        />
+        <section className="formContainer__up">
+          <label htmlFor="formName">NOMBRE</label>
+          <input
+            className="formContainer__input-name"
+            type="text"
+            id="formName"
+            name="name"
+            placeholder="Nombre"
+            required
+          />
 
-        <label htmlFor="formLastname">APELLIDOS</label>
-        <input
-          className="formContainer__input-Lastname"
-          type="text"
-          id="formLastname"
-          name="Lastname"
-          placeholder="Apellidos"
-          onChange={handleChange}
-          required
-        />
+          <label htmlFor="formLastname">APELLIDOS</label>
+          <input
+            className="formContainer__input-Lastname"
+            type="text"
+            id="formLastname"
+            name="Lastname"
+            placeholder="Apellidos"
+            required
+          />
         </section>
-        
-        
-
 
         <section className="formContainer__down">
           <div>
@@ -67,7 +55,6 @@ export const FormMembers = () => {
               id="formPhone"
               name="phone"
               placeholder="63352..."
-              onChange={handleChange}
               required
             />
           </div>
@@ -79,7 +66,6 @@ export const FormMembers = () => {
               id="formEmail"
               name="email"
               placeholder="correo@correo.es"
-              onChange={handleChange}
               required
             />
           </div>
@@ -88,7 +74,7 @@ export const FormMembers = () => {
         <button
           className="formContainer__button"
           type="button"
-          onClick={agregarUsuario}
+          onClick={handleNewMember}
         >
           Añadir Socio
         </button>
