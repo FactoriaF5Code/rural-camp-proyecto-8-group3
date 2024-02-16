@@ -22,3 +22,20 @@
     padding: 1.4rem 2rem;
     border-radius: 0.5rem;
 }
+
+.lendingOk__checkIcon{
+    color:var(--color-green)!important;
+    font-size: 7rem!important;
+    margin-bottom: 3rem;
+}
+
+.lendingOk__title {
+    color: var(--color-green);
+    font-size: 2.5rem;
+}
+
+.lendingOk__userNumber{
+    color: var(--color-darkgreen);
+    font-size: 4rem;
+    margin: 2rem;
+}
