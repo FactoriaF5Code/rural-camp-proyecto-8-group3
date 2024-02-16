@@ -14,6 +14,7 @@ public class Members {
     private String lastName;
     private String email;
     private Integer phone;
+    public Long getId;
 
     public Members(Long idMember, String name, String lastName, Integer phone, String email) {
         this.idMember = idMember;

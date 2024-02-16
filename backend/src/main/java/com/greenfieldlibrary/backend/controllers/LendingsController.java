@@ -1,75 +1,109 @@
-// package com.greenfieldlibrary.backend.controllers;
+package com.greenfieldlibrary.backend.controllers;
 
-// import java.util.Optional;
+import java.util.Optional;
 
-// import org.springframework.beans.factory.annotation.Autowired;
-// import org.springframework.http.HttpStatus;
-// import org.springframework.web.bind.annotation.DeleteMapping;
-// import org.springframework.web.bind.annotation.PathVariable;
-// import org.springframework.web.bind.annotation.PostMapping;
-// import org.springframework.web.bind.annotation.RequestBody;
-// import org.springframework.web.bind.annotation.RequestMapping;
-// import org.springframework.web.bind.annotation.ResponseStatus;
-// import org.springframework.web.bind.annotation.RestController;
-// import org.springframework.web.server.ResponseStatusException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
-// import com.greenfieldlibrary.backend.persistence.LendingsRepository;
-// import com.greenfieldlibrary.backend.persistence.Members;
-// import com.greenfieldlibrary.backend.persistence.Books;
-// import com.greenfieldlibrary.backend.persistence.BooksRepository;
-// import com.greenfieldlibrary.backend.persistence.Lendings;
+import com.greenfieldlibrary.backend.persistence.LendingsRepository;
+import com.greenfieldlibrary.backend.persistence.Members;
+import com.greenfieldlibrary.backend.persistence.MembersRepository;
+import com.greenfieldlibrary.backend.persistence.Books;
+import com.greenfieldlibrary.backend.persistence.BooksRepository;
+import com.greenfieldlibrary.backend.persistence.Lendings;
 
-// @RestController
-// @RequestMapping("/lendings")
-// public class LendingsController {
+@RestController
 
-// @Autowired
-// private LendingsRepository lendingsRepository;
+public class LendingsController {
 
-// @PostMapping
-// public LendingsResponse createLending(@RequestBody LendingsRequest request) {
-// Lendings lending = new Lendings();
-// // Obtención de Books (usando un repo que te facilite búsquedas en Spring)
-// Books book = BooksRepository.findById(request.getIdBooks())
-// .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Book
-// not found"));
+    // @PostMapping
+    // //*public LendingsResponse createLending(@RequestBody LendingsRequest
+    // request) {
+    // Lendings lending = new Lendings();
+    // // Obtención de Books (usando un repo que te facilite búsquedas en Spring)
+    // Books book = BooksRepository.findById(request.getIdBooks())
+    // .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Book
+    // not found"));
 
-// Members member = membersRepository.findById(request.getIdMember())
-// .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Member
-// not found"));
+    // Members member = membersRepository.findById(request.getIdMember())
+    // .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Member
+    // not found"));
 
-// Lendings lending = new Lendings();
-// lending.setBook(book);
-// lending.setMember(member);
-// // Establecer Book relacionado mediante el id
-// Books book = BooksRepository.findById(request.getIdBooks())
-// .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Book
-// not found"));
-// Members member = new Members();
-// member.setIdMember(request.getIdMember());
-// lending.setMember(member);
+    // Lendings lending = new Lendings();
+    // lending.setBook(book);
+    // lending.setMember(member);
+    // // Establecer Book relacionado mediante el id
+    // Books book = BooksRepository.findById(request.getIdBooks())
+    // .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Book
+    // not found"));
+    // Members member = new Members();
+    // member.setIdMember(request.getIdMember());
+    // lending.setMember(member);
 
-// lending.setDataLending(request.getDataLending());
-// lending.setDataReturn(request.getDataReturn());
+    // lending.setDataLending(request.getDataLending());
+    // lending.setDataReturn(request.getDataReturn());
 
-// Lendings savedLending = lendingsRepository.save(lending);
+    // Lendings savedLending = lendingsRepository.save(lending);
 
-// // Mapeo de propiedades como lo tenías originalmente
-// return new LendingsResponse(savedLending.getId(), savedLending.getId(),
-// savedLending.getBook().getIdBooks(), // obtener ID del libro mediante la
-// relación
-// savedLending.getDataLending(),
-// savedLending.getDataReturn());
-// }
+    // // Mapeo de propiedades como lo tenías originalmente
+    // return new LendingsResponse(savedLending.getId(), savedLending.getId(),
+    // savedLending.getBook().getIdBooks(), // obtener ID del libro mediante la
+    // relación
+    // savedLending.getDataLending(),
+    // savedLending.getDataReturn());
+    // }
 
-// @DeleteMapping("/{id}")
-// @ResponseStatus(HttpStatus.NO_CONTENT)
-// public void deleteLendingById(@PathVariable Long id) {
-// Optional<Lendings> optionalLending = lendingsRepository.findById(id);
-// if (optionalLending.isPresent()) {
-// lendingsRepository.delete(optionalLending.get());
-// } else {
-// throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Lending not found");
-// }
-// }
-// }
+    // @DeleteMapping("/{id}")
+    // @ResponseStatus(HttpStatus.NO_CONTENT)
+    // public void deleteLendingById(@PathVariable Long id) {
+    // Optional<Lendings> optionalLending = lendingsRepository.findById(id);
+    // if (optionalLending.isPresent()) {
+    // lendingsRepository.delete(optionalLending.get());
+    // } else {
+    // throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Lending not found");
+    // }
+    // }
+    @Autowired
+    private BooksRepository booksRepository;
+
+    @Autowired
+    private MembersRepository membersRepository;
+
+    @Autowired
+    private LendingsRepository lendingsRepository; // }
+
+    @PostMapping("/lendings")
+    public ResponseEntity<LendingsResponse> createLending(@RequestBody LendingsRequest LendingsRequest) {
+
+        Long bookId = LendingsRequest.getIdBooks();
+        Long memberId = LendingsRequest.getIdMember();
+
+        Books book = booksRepository.findById(bookId)
+                .orElseThrow();
+
+        Members member = membersRepository.findById(memberId)
+                .orElseThrow();
+
+        Lendings newLending = new Lendings();
+        newLending.setBook(book);
+        newLending.setMember(member);
+        newLending.setDataLending(LendingsRequest.getDataLending());
+        newLending.setDataReturn(LendingsRequest.getDataReturn());
+
+        Lendings savedLending = lendingsRepository.save(newLending);
+        LendingsResponse response = new LendingsResponse(savedLending.getId(), savedLending.getBook().getId,
+                savedLending.getMember().getId, savedLending.getDataLending(),
+                savedLending.getDataReturn());
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+
+    }
+}
