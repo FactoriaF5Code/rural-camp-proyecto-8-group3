@@ -1,16 +1,16 @@
 package com.greenfieldlibrary.backend.controllers;
 
 public class BooksRequest {
-    private Long idBooks;
+    private Integer idBooks;
     private String title;
     private String author;
     private String isbn;
     private String status;
     
-    public Long getIdBooks() {
+    public Integer getIdBooks() {
         return idBooks;
     }
-    public void setIdBooks(Long idBooks) {
+    public void setIdBooks(Integer idBooks) {
         this.idBooks = idBooks;
     }
     public String getTitle() {

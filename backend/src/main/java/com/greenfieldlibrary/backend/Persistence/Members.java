@@ -68,8 +68,4 @@ public class Members {
         this.phone = phone;
     }
 
-    public void setIdBooks(Long idMember2) {
-
-        throw new UnsupportedOperationException("Unimplemented method 'setIdBooks'");
-    }
 }

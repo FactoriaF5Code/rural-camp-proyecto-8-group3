@@ -5,12 +5,12 @@ import java.util.Date;
 public class LendingsResponse {
 
 private Long id;
-private Long idBooks;
-private Long idMember;
+private Integer idBooks;
+private Integer idMember;
 private Date dataLending;
 private Date dataReturn;
 
-public LendingsResponse(Long id, Long idBooks, Long idMember, Date
+public LendingsResponse(Long id, Integer idBooks, Integer idMember, Date
 dataLending, Date dataReturn) {
 this.id = id;
 this.idBooks = idBooks;
@@ -27,19 +27,19 @@ public void setId(Long id) {
 this.id = id;
 }
 
-public Long getidBooks() {
+public Integer getidBooks() {
 return idBooks;
 }
 
-public void setidBooks(Long idBooks) {
+public void setidBooks(Integer idBooks) {
 this.idBooks = idBooks;
 }
 
-public Long getIdMember() {
+public Integer getIdMember() {
 return idMember;
 }
 
-public void setIdMember(Long idMember) {
+public void setIdMember(Integer idMember) {
 this.idMember = idMember;
 }
 
