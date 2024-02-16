@@ -10,6 +10,8 @@ export const Searcher = () => {
   const [isBooksActive, setIsBooksActive] = useState(true);
   const [placeholder, setPlaceholder] = useState('');
 
+  const { books, needsReload, getBooks } = useContent(DataBooks);
+
   useEffect(() => {
     // Cambia el estado de buttonActive a true cuando se carga la página
     setButtonActive(true);
