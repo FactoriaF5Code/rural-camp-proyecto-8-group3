@@ -90,7 +90,7 @@ export const FormMembers = () => {
           type="button"
           onClick={agregarUsuario}
         >
-          Añadir Usuario
+          Añadir Socio
         </button>
       </form>
     </div>
