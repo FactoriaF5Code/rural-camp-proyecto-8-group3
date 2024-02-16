@@ -30,3 +30,13 @@ header h1{
     font-size: 14px;
     font-weight: 400;
 }
+
+.backButton {
+    color: var(--color-darkgreen);
+    font-size: 1.5rem;
+    text-decoration: underline;
+}
+
+.backButton:hover{
+    color:var(--color-green);
+}
