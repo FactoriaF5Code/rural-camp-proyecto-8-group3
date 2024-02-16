@@ -33,7 +33,7 @@ public class MembersController {
     }
 
     @GetMapping("/members/{id}")
-    public ResponseEntity<MembersResponse> getMemberById(@PathVariable Long id) {
+    public ResponseEntity<MembersResponse> getMemberById(@PathVariable Integer id) {
         Optional<Members> member = repository.findById(id);
         if (member.isPresent()) {
             Members existingMember = member.get();

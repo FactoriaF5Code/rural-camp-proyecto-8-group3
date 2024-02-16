@@ -3,17 +3,17 @@ package com.greenfieldlibrary.backend.controllers;
 public class MembersRequest {
 
 
-    private Long idMembers;
+    private Integer idMembers;
     private String name;
     private String lastName;
     private Integer phone;
     private String email;
 
-    public Long getIdMembers() {
+    public Integer getIdMembers() {
         return idMembers;
     }
 
-    public void setIdMembers(Long idMembers) {
+    public void setIdMembers(Integer idMembers) {
         this.idMembers = idMembers;
     }
 
@@ -49,7 +49,7 @@ public class MembersRequest {
         this.email = email;
     }
 
-    public MembersRequest(Long idMembers, String name, String lastName, Integer phone, String email) {
+    public MembersRequest(Integer idMembers, String name, String lastName, Integer phone, String email) {
         this.idMembers = idMembers;
         this.name = name;
         this.lastName = lastName;
