@@ -25,7 +25,7 @@ export const Searcher = () => {
           </button>
         </div>
       </section>
-      <FixedHeaderTable activeButton={activeButton} / >
+      <FixedHeaderTable activeButton={activeButton} />
     </>
   )
 }
