@@ -2,13 +2,13 @@ package com.greenfieldlibrary.backend.controllers;
 
 public class MembersResponse {
 
-    private Long idMembers;
+    private Integer idMembers;
     private String name;
     private String lastName;
     private Integer phone;
     private String email;
 
-    public MembersResponse(Long idMembers, String name, String lastName, Integer phone, String email) {
+    public MembersResponse(Integer idMembers, String name, String lastName, Integer phone, String email) {
         this.idMembers = idMembers;
         this.name = name;
         this.lastName = lastName;
@@ -16,11 +16,11 @@ public class MembersResponse {
         this.email = email;
     }
 
-    public Long getidMembers() {
+    public Integer getidMembers() {
         return idMembers;
     }
 
-    public void setidMembers(Long idMembers) {
+    public void setidMembers(Integer idMembers) {
         this.idMembers = idMembers;
     }
 

@@ -9,13 +9,13 @@ import jakarta.persistence.Id;
 public class Members {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idMember;
+    private Integer idMember;
     private String name;
     private String lastName;
     private String email;
     private Integer phone;
 
-    public Members(Long idMember, String name, String lastName, Integer phone, String email) {
+    public Members(Integer idMember, String name, String lastName, Integer phone, String email) {
         this.idMember = idMember;
         this.name = name;
         this.lastName = lastName;
@@ -28,11 +28,11 @@ public class Members {
     }
 
     // Getters y Setters
-    public Long getIdMember() {
+    public Integer getIdMember() {
         return idMember;
     }
 
-    public void setIdMember(Long idMember) {
+    public void setIdMember(Integer idMember) {
         this.idMember = idMember;
     }
 
@@ -68,8 +68,4 @@ public class Members {
         this.phone = phone;
     }
 
-    public void setIdBooks(Long idMember2) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'setIdBooks'");
-    }
 }
