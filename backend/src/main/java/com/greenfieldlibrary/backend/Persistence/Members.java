@@ -67,4 +67,9 @@ public class Members {
     public void setPhone(Integer phone) {
         this.phone = phone;
     }
+
+    public void setIdBooks(Long idMember2) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'setIdBooks'");
+    }
 }

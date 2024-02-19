@@ -1,83 +1,81 @@
-package com.greenfieldlibrary.backend.persistence;
 
-import java.util.Date;
+// package com.greenfieldlibrary.backend.persistence;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+// import java.util.Date;
 
-@Entity
-@Table(name = "lendings")
-public class Lendings {
+// import jakarta.persistence.Column;
+// import jakarta.persistence.Entity;
+// import jakarta.persistence.GeneratedValue;
+// import jakarta.persistence.GenerationType;
+// import jakarta.persistence.Id;
+// import jakarta.persistence.JoinColumn;
+// import jakarta.persistence.ManyToOne;
+// import jakarta.persistence.Table;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+// @Entity
+// @Table(name = "lendings")
+// public class Lendings {
 
-    public Lendings(Long id, Long idBooks, Long idMember, Date dataLending, Date dataReturn) {
-        this.id = id;
-        this.idBooks = idBooks;
-        this.idMember = idMember;
-        this.dataLending = dataLending;
-        this.dataReturn = dataReturn;
-    }
+// @Id
+// @GeneratedValue(strategy = GenerationType.IDENTITY)
+// private Long id;
 
-    @Column(name = "id_books")
-    private Long idBooks;
+// @ManyToOne
+// @JoinColumn(name = "id_books") // Cambiamos "book" a "books"
+// private Books book;
 
-    @Column(name = "idMember")
-    private Long idMember;
+// @ManyToOne
+// @JoinColumn(name = "id_member")
+// private Members member;
 
-    @Column(name = "data_lending")
-    private Date dataLending;
+// @Column(name = "data_lending")
+// private Date dataLending;
 
-    @Column(name = "data_return")
-    private Date dataReturn;
+// @Column(name = "data_return")
+// private Date dataReturn;
 
-    public Lendings() {
-    }
+// // Constructor (vacío)
+// public Lendings() {
+// }
 
-    public Long getId() {
-        return id;
-    }
+// // Getters y Setters
+// public Long getId() {
+// return id;
+// }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+// public void setId(Long id) {
+// this.id = id;
+// }
 
-    public Long getIdBooks() {
-        return idBooks;
-    }
+// public Books getBook() {
+// return book;
+// }
 
-    public void setIdBooks(Long idBooks) {
-        this.idBooks = idBooks;
-    }
+// public void setBook(Books book) {
+// this.book = book;
+// }
 
-    public Long getIdMember() {
-        return idMember;
-    }
+// public Members getMember() {
+// return member;
+// }
 
-    public void setIdMember(Long idMember) {
-        this.idMember = idMember;
-    }
+// public void setMember(Members member) {
+// this.member = member;
+// }
 
-    public Date getDataLending() {
-        return dataLending;
-    }
+// public Date getDataLending() {
+// return dataLending;
+// }
 
-    public void setDataLending(Date dataLending) {
-        this.dataLending = dataLending;
-    }
+// public void setDataLending(Date dataLending) {
+// this.dataLending = dataLending;
+// }
 
-    public Date getDataReturn() {
-        return dataReturn;
-    }
+// public Date getDataReturn() {
+// return dataReturn;
+// }
 
-    public void setDataReturn(Date dataReturn) {
-        this.dataReturn = dataReturn;
-    }
-
-}
+// public void setDataReturn(Date dataReturn) {
+// this.dataReturn = dataReturn;
+// }
+// }
