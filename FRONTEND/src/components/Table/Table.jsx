@@ -11,6 +11,7 @@ import {
   Paper,
 } from "@mui/material";
 
+// eslint-disable-next-line react/prop-types
 function FixedHeaderTable({ activeButton }) {
   const [data, setData] = useState([]);
   const [tableHeaders, setTableHeaders] = useState([]);
