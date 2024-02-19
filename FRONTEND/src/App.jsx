@@ -1,12 +1,14 @@
 import './App.css'
-import { Home } from './pages/Home/Home'
 import { AppRouter } from './router/AppRouter'
+import { DataMembersProvider } from "./context/DataMembers";
 
 function App() {
   
   return (
     <>
+    <DataMembersProvider>
       <AppRouter />
+    </DataMembersProvider>
     </>
   )
 }
