@@ -75,4 +75,9 @@ return dataReturn;
 public void setDataReturn(Date dataReturn) {
 this.dataReturn = dataReturn;
 }
+
+public static Long getIdLendings() {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'getIdLendings'");
+}
 }
