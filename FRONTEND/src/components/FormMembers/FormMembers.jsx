@@ -7,17 +7,17 @@ export const FormMembers = () => {
   const [newMember, setNewMember] = useState({
     name: "",
     lastName: "",  
-    phone: "",
     email: "",
+    phone: "",
   });
 
   const handleNewMember = () => {
     postMembers(newMember);
     setNewMember({
       name: "",
-      lastNames: "",  // Cambiado de 'lastname' a 'lastNames'
-      phone: "",
+      lastName: "",  
       email: "",
+      phone: "",
     });
   };
 
@@ -33,6 +33,8 @@ export const FormMembers = () => {
             id="formName"
             name="name"
             placeholder="Nombre"
+            value={newMember.name}
+            onChange={(e) => setNewMember({ ...newMember, name: e.target.value })}
             required
           />
 
@@ -43,6 +45,8 @@ export const FormMembers = () => {
             id="formLastname"
             name="lastName"  
             placeholder="Apellidos"
+            value={newMember.lastName}
+            onChange={(e) => setNewMember({ ...newMember, lastName: e.target.value })}
             required
           />
         </section>
@@ -56,6 +60,8 @@ export const FormMembers = () => {
               id="formPhone"
               name="phone"
               placeholder="63352..."
+              value={newMember.phone}
+              onChange={(e) => setNewMember({ ...newMember, phone: e.target.value })}
               required
             />
           </div>
@@ -67,6 +73,8 @@ export const FormMembers = () => {
               id="formEmail"
               name="email"
               placeholder="correo@correo.es"
+              value={newMember.email}
+              onChange={(e) => setNewMember({ ...newMember, email: e.target.value })}
               required
             />
           </div>

@@ -18,7 +18,7 @@ export const DataMembersProvider = ({ children }) => {
         console.log("Miembro agregado con éxito");
         setNeedsReload(true); 
       } else {
-        console.error("Error al agregar miembro");
+        console.error("Error al agregar miembro. Detalles:", response.data);
       }
     } catch (error) {
       console.error("Error de red", error);
