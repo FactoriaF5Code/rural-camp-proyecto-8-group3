@@ -36,13 +36,14 @@ export const Searcher = () => {
   };
 
   return (
+    <>
     <section className="searchContainer">
       <div className='searchContainer__Field'>
         <VerticalToggleButtons
           activeButton={activeButton}
           handleButtonChange={handleButtonChange}
         />
-        <FixedHeaderTable activeButton={activeButton} /> 
+        
         <input
           type="search"
           className="searchContainer__Field-Input"
@@ -53,5 +54,7 @@ export const Searcher = () => {
         </button>        
       </div>
     </section>
+    <FixedHeaderTable activeButton={activeButton} /> 
+    </>
   )
 }
