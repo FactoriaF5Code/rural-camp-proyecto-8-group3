@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import "./Table.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -11,8 +12,8 @@ import {
   Paper,
 } from "@mui/material";
 
-function FixedHeaderTable({ activeButton }) {
-  const [data, setData] = useState([]);
+function FixedHeaderTable({ activeButton, searchResults }) {
+  // const [data, setData] = useState([]);
   const [tableHeaders, setTableHeaders] = useState([]);
 
   useEffect(() => {
@@ -23,9 +24,9 @@ function FixedHeaderTable({ activeButton }) {
           response = await axios.get("http://localhost:9000/books");
           setTableHeaders([
             "ID",
-            "ISBN",
             "Título",
             "Autor",
+            "ISBN",
             "Estado"
           ]);
         } else if (activeButton === "members") {
@@ -37,10 +38,6 @@ function FixedHeaderTable({ activeButton }) {
             "Email",
             "Teléfono"
           ]);
-        }
-
-        if (response && response.data) {
-          setData(response.data);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -62,23 +59,24 @@ function FixedHeaderTable({ activeButton }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((row, index) => (
+              {Array.isArray(searchResults) && searchResults.length > 0 && searchResults.map((row, index) => (
+
               <TableRow key={index}>
                 {activeButton === "books" ? (
                   <React.Fragment>
-                    <TableCell className="table-cell">{row.idBooks}</TableCell>
-                    <TableCell className="table-cell">{row.isbn}</TableCell>
-                    <TableCell className="table-cell">{row.title}</TableCell>
-                    <TableCell className="table-cell">{row.author}</TableCell>
-                    <TableCell className="table-cell">{row.status}</TableCell>
+                    <TableCell className="table-cell">{row.item.idBooks}</TableCell> {/* Accede a item.idBooks ya que searchResults contiene objetos con una estructura específica */}
+                    <TableCell className="table-cell">{row.item.title}</TableCell>
+                    <TableCell className="table-cell">{row.item.author}</TableCell>
+                    <TableCell className="table-cell">{row.item.isbn}</TableCell>
+                    <TableCell className="table-cell">{row.item.status}</TableCell>
                   </React.Fragment>
                 ) : (
                   <React.Fragment>
-                    <TableCell className="table-cell">{row.idMembers}</TableCell>
-                    <TableCell className="table-cell">{row.name}</TableCell>
-                    <TableCell className="table-cell">{row.lastName}</TableCell>
-                    <TableCell className="table-cell">{row.email}</TableCell>
-                    <TableCell className="table-cell">{row.phone}</TableCell>
+                    <TableCell className="table-cell">{row.item.idMembers}</TableCell>
+                    <TableCell className="table-cell">{row.item.name}</TableCell>
+                    <TableCell className="table-cell">{row.item.lastName}</TableCell>
+                    <TableCell className="table-cell">{row.item.email}</TableCell>
+                    <TableCell className="table-cell">{row.item.phone}</TableCell>
                   </React.Fragment>
                 )}
               </TableRow>
