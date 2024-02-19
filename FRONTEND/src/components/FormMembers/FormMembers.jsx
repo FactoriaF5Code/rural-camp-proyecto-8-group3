@@ -1,24 +1,35 @@
 import { useState } from "react";
-import "./FormMembers.css";
+import { useNavigate } from "react-router-dom";
 import { useDataMembers } from "../../context/DataMembers";
+import "./FormMembers.css";
 
 export const FormMembers = () => {
   const { postMembers } = useDataMembers();
   const [newMember, setNewMember] = useState({
     name: "",
-    lastName: "",  
+    lastName: "",
     email: "",
     phone: "",
   });
 
-  const handleNewMember = () => {
-    postMembers(newMember);
-    setNewMember({
-      name: "",
-      lastName: "",  
-      email: "",
-      phone: "",
-    });
+  const navigate = useNavigate();
+
+  const handleNewMember = async () => {
+    try {
+      const idMembers = await postMembers(newMember);
+      setNewMember({
+        name: "",
+        lastName: "",
+        email: "",
+        phone: "",
+      });
+
+    
+      navigate(`/nuevo-socio-ok/${idMembers}`);
+    } catch (error) {
+      console.error("Error:", error);
+      
+    }
   };
 
   return (
@@ -43,7 +54,7 @@ export const FormMembers = () => {
             className="formContainer__input-Lastname"
             type="text"
             id="formLastname"
-            name="lastName"  
+            name="lastName"
             placeholder="Apellidos"
             value={newMember.lastName}
             onChange={(e) => setNewMember({ ...newMember, lastName: e.target.value })}
