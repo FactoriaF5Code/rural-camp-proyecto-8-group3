@@ -1,4 +1,4 @@
-import "./Table.css";
+/* eslint-disable react/prop-types */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import {
@@ -10,9 +10,13 @@ import {
   TableContainer,
   Paper,
 } from "@mui/material";
+import "./Table.css";
 
-// eslint-disable-next-line react/prop-types
-function FixedHeaderTable({ activeButton }) {
+
+function FixedHeaderTable({
+  activeButton,
+  firstResult,
+}) {
   const [data, setData] = useState([]);
   const [tableHeaders, setTableHeaders] = useState([]);
 
@@ -29,13 +33,7 @@ function FixedHeaderTable({ activeButton }) {
         }
 
         if (response && response.data) {
-          const modifiedData = response.data.map((item) => {
-            if (item.status === "En préstamo") {
-              return { ...item, status: "Devolución" };
-            }
-            return item;
-          });
-          setData(modifiedData);
+          setData(response.data);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -44,6 +42,9 @@ function FixedHeaderTable({ activeButton }) {
 
     fetchDataFromDatabase();
   }, [activeButton]);
+
+  // Filtrar los datos basados en el primer resultado de la búsqueda
+  const filteredData = firstResult ? data.filter(item => item.title === firstResult.title && item.author === firstResult.author) : [];
 
   return (
     <div>
@@ -59,7 +60,7 @@ function FixedHeaderTable({ activeButton }) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {data.map((row, index) => (
+            {filteredData.map((row, index) => (
               <TableRow key={index}>
                 {activeButton === "books" ? (
                   <React.Fragment>
@@ -82,9 +83,7 @@ function FixedHeaderTable({ activeButton }) {
                   </React.Fragment>
                 ) : (
                   <React.Fragment>
-                    <TableCell className="table-cell">
-                      {row.idMembers}
-                    </TableCell>
+                    <TableCell className="table-cell">{row.idMember}</TableCell>
                     <TableCell className="table-cell">{row.name}</TableCell>
                     <TableCell className="table-cell">{row.lastName}</TableCell>
                     <TableCell className="table-cell">{row.email}</TableCell>
