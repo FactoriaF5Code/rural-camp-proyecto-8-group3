@@ -8,7 +8,6 @@ import FixedHeaderTable from '../Table/Table';
 export const Searcher = () => {
   const [activeButton, setActiveButton] = useState("books");
 
-<<<<<<< HEAD
   const { books, needsReload, getBooks } = useContent(DataBooks);
 
   useEffect(() => {
@@ -34,10 +33,6 @@ export const Searcher = () => {
     setIsBooksActive(true);
     // Cambia el placeholder cuando se hace clic en el botón de libros
     setPlaceholder("Búsqueda de libro por título, autor o ISBN");
-=======
-  const handleButtonChange = (event, newActiveButton) => {
-    setActiveButton(newActiveButton);
->>>>>>> faa97e7a2165c6eb03bcec2fd15ace7dd9a8859a
   };
 
   return (
