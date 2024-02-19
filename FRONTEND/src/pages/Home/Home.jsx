@@ -23,7 +23,6 @@ export const Home = ({
         setSearchTerm={setSearchTerm}
         searchResults={searchResults}
       />
-
     </>
   )
 }
