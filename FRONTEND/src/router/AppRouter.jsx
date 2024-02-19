@@ -4,16 +4,18 @@ import { LendingOk } from "../pages/Lending/LendingOk"
 import { NewMember } from "../pages/NewMember/NewMember"
 import { NewMemberOk } from "../pages/NewMember/NewMemberOk"
 import { ReturnOk } from "../pages/ReturnOk/ReturnOk"
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export const AppRouter = () => {
   return (
+    
     <BrowserRouter>
       <Routes>
         <Route path='/*' element={<Home />} />
         <Route path='/prestamo' element={<Lending />} />
         <Route path='/prestamo-ok' element={<LendingOk />} />
         <Route path='/nuevo-socio' element={<NewMember />} />
-        <Route path='/nuevo-socio-ok' element={<NewMemberOk />} />
+        <Route path='/nuevo-socio-ok/:idMembers' element={<NewMemberOk />} />
         <Route path='/devolucion-ok' element={<ReturnOk />} />
       </Routes>
     </BrowserRouter>
