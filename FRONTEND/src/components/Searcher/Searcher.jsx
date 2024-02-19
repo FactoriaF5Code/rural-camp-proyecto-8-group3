@@ -16,6 +16,7 @@ export const Searcher = ({
   searchResults
 }) => {
   const [firstResult, setFirstResult] = useState(null); // Estado para almacenar el primer resultado de la búsqueda
+  const [resultMembers, setResultMembers] = useState(null);
   const [memberName, setMemberName] = useState("");
   const [memberLastName, setMemberLastName] = useState("");
 
@@ -38,7 +39,7 @@ export const Searcher = ({
         }
         const fuseOptions = {
           keys: keysToSearch,
-          threshold: 1.8 // Define el threshold aquí (por ejemplo, 0.5)
+          threshold: 1.8
         };
         const fuse = new Fuse(data, fuseOptions); // Configura Fuse.js para buscar en los campos correspondientes
         const results = fuse.search(searchTerm); // Realiza la búsqueda
@@ -50,6 +51,7 @@ export const Searcher = ({
             // Si el botón activo es "members", establece los valores de nombre y apellido
             setMemberName(results[0].item.name);
             setMemberLastName(results[0].item.lastName);
+            setResultMembers(results[0].item);
           }
         } else {
           // Si no hay resultados, establece firstResult en null y reinicia los valores de nombre y apellido
@@ -88,21 +90,13 @@ export const Searcher = ({
           </div>
         </form>
       </section>
-      {activeButton === "members" && (
-        <>
-          <p>Nombre: {memberName}</p>
-          <p>Apellido: {memberLastName}</p>
-        </>
-      )}
       <FixedHeaderTable
         activeButton={activeButton}
         searchResults={searchResults}
         setFirstResult={setFirstResult}
         firstResult={firstResult}
-        memberLastName={memberLastName}
-        memberName={memberName}
-        setMemberLastName={setMemberLastName}
-        setMemberName={setMemberName}
+        setResultMembers={setResultMembers}
+        resultMembers={resultMembers}
       />
     </>
   );
