@@ -37,6 +37,10 @@ public class Lendings {
     public Lendings() {
     }
 
+    public Lendings(int i, int j, String string, String string2, String string3) {
+        // TODO Auto-generated constructor stub
+    }
+
     // Getters y Setters
     public Long getId() {
         return id;
@@ -54,7 +58,7 @@ public class Lendings {
         this.book = book;
     }
 
-    public Members getMember() {
+    public Long getMember() {
         return member;
     }
 
@@ -76,5 +80,15 @@ public class Lendings {
 
     public void setDataReturn(Date dataReturn) {
         this.dataReturn = dataReturn;
+    }
+
+    public Short getStatus() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getStatus'");
+    }
+
+    public Long getIdBooks() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getIdBooks'");
     }
 }
