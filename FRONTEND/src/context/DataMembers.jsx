@@ -1,4 +1,3 @@
-
 import { createContext, useContext, useState, useEffect } from "react";
 import axios from "axios";
 
@@ -7,6 +6,7 @@ const DataMembersContext = createContext();
 export const DataMembersProvider = ({ children }) => {
   const [members, setMembers] = useState([]);
   const [needsReload, setNeedsReload] = useState(true);
+  const [searchTerm, setSearchTerm] = useState(""); // Nuevo estado para el término de búsqueda
   const URL = "http://localhost:9000/members";
 
   const postMembers = async (newMember) => {
@@ -27,6 +27,16 @@ export const DataMembersProvider = ({ children }) => {
     }
   };
 
+  const searchMembers = () => {
+    if (!searchTerm) {
+      return members;
+    }
+
+    return members.filter(member =>
+      member.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  };
+
   useEffect(() => {
     if (needsReload) {
       axios.get(URL)
@@ -41,10 +51,12 @@ export const DataMembersProvider = ({ children }) => {
   }, [needsReload]);
 
   const value = {
-    members,
+    members: searchMembers(), 
     setMembers,
     needsReload,
     postMembers,
+    searchTerm,
+    setSearchTerm,
   };
 
   return <DataMembersContext.Provider value={value}>{children}</DataMembersContext.Provider>;
@@ -53,3 +65,4 @@ export const DataMembersProvider = ({ children }) => {
 export const useDataMembers = () => {
   return useContext(DataMembersContext);
 };
+
