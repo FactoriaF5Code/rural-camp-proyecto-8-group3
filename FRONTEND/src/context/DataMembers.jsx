@@ -16,7 +16,7 @@ export const DataMembersProvider = ({ children }) => {
 
       if (response.status === 201) {
         console.log("Miembro agregado con éxito");
-        setNeedsReload(true); // Trigger reload after successful POST
+        setNeedsReload(true); 
       } else {
         console.error("Error al agregar miembro");
       }
@@ -27,7 +27,15 @@ export const DataMembersProvider = ({ children }) => {
 
   useEffect(() => {
     if (needsReload) {
-      // Realiza el código necesario si es necesario recargar datos desde la API
+      
+      axios.get(URL)
+        .then(response => {
+          setMembers(response.data);
+          setNeedsReload(false);  
+        })
+        .catch(error => {
+          console.error("Error al obtener datos de miembros", error);
+        });
     }
   }, [needsReload]);
 

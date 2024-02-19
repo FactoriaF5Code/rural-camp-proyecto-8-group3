@@ -1,22 +1,23 @@
 import { useState } from "react";
 import "./FormMembers.css";
-import { useDataMembers } from "../../context/DataMembersContext";
+import { useDataMembers } from "../../context/DataMembers";
 
 export const FormMembers = () => {
   const { postMembers } = useDataMembers();
   const [newMember, setNewMember] = useState({
-    nombre: "",
-    apellidos: "",
-    telefono: "",
-    correo: "",
+    name: "",
+    lastName: "",  
+    phone: "",
+    email: "",
   });
+
   const handleNewMember = () => {
     postMembers(newMember);
     setNewMember({
-      nombre: "",
-      apellidos: "",
-      telefono: "",
-      correo: "",
+      name: "",
+      lastNames: "",  // Cambiado de 'lastname' a 'lastNames'
+      phone: "",
+      email: "",
     });
   };
 
@@ -40,7 +41,7 @@ export const FormMembers = () => {
             className="formContainer__input-Lastname"
             type="text"
             id="formLastname"
-            name="Lastname"
+            name="lastName"  
             placeholder="Apellidos"
             required
           />
@@ -59,7 +60,7 @@ export const FormMembers = () => {
             />
           </div>
           <div>
-            <label htmlFor="formEmail">CORREO ELECTRONICO</label>
+            <label htmlFor="formEmail">CORREO ELECTRÓNICO</label>
             <input
               className="formContainer__input-email"
               type="email"
