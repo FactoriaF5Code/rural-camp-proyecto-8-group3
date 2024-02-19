@@ -20,7 +20,7 @@ public class Lendings {
 private Long id;
 
 @ManyToOne
-@JoinColumn(name = "id_books") // Cambiamos "book" a "books"
+@JoinColumn(name = "id_books") 
 private Books book;
 
 @ManyToOne
@@ -33,11 +33,9 @@ private Date dataLending;
 @Column(name = "data_return")
 private Date dataReturn;
 
-// Constructor (vacío)
 public Lendings() {
 }
 
-// Getters y Setters
 public Long getId() {
 return id;
 }

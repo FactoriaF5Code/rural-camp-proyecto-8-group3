@@ -35,27 +35,21 @@ public class LendingController {
         } else if (request.getMemberId() == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Member ID not found");
         }
-        // Buscar libro y miembro por ID
-        // ...
-        Integer idBooks = request.getBookId(); // Asegura que es Integer
+
+        Integer idBooks = request.getBookId(); 
         Books book = booksRepository.findById(idBooks)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Book not found"));
-        // ...
 
-        // ...
-        Integer idMember = request.getMemberId(); // Asegura que es Integer
+        Integer idMember = request.getMemberId(); 
         Members member = membersRepository.findById(idMember)
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Member not found"));
-        // ...
 
-        // Crear nuevo objeto Lending
         Lendings lending = new Lendings();
         lending.setBook(book);
         lending.setMember(member);
         lending.setDataLending(request.getDataLending());
         lending.setDataReturn(request.getDataReturn());
 
-        // Guardar el préstamo en la base de datos
         return lendingsRepository.save(lending);
     }
 }
