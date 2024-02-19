@@ -1,15 +1,14 @@
+// En Searcher.js
+
 import './Searcher.css';
 import { VerticalToggleButtons } from './VerticalToogleButtons';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import FixedHeaderTable from '../Table/Table'; 
 
 export const Searcher = () => {
-  const [buttonActive, setButtonActive] = useState(false);
-  const [userButtonClicked, setUserButtonClicked] = useState(false);
-  const [booksButtonClicked, setBooksButtonClicked] = useState(false);
-  const [isUsersActive, setIsUsersActive] = useState(false);
-  const [isBooksActive, setIsBooksActive] = useState(true);
-  const [placeholder, setPlaceholder] = useState('');
+  const [activeButton, setActiveButton] = useState("books");
 
+<<<<<<< HEAD
   const { books, needsReload, getBooks } = useContent(DataBooks);
 
   useEffect(() => {
@@ -35,21 +34,24 @@ export const Searcher = () => {
     setIsBooksActive(true);
     // Cambia el placeholder cuando se hace clic en el botón de libros
     setPlaceholder("Búsqueda de libro por título, autor o ISBN");
+=======
+  const handleButtonChange = (event, newActiveButton) => {
+    setActiveButton(newActiveButton);
+>>>>>>> faa97e7a2165c6eb03bcec2fd15ace7dd9a8859a
   };
 
   return (
     <section className="searchContainer">
       <div className='searchContainer__Field'>
-      <VerticalToggleButtons
-        buttonActive={buttonActive}
-        userButtonClicked={userButtonClicked}
-        handleBooksButtonClick={handleBooksButtonClick}
-        booksButtonClicked={booksButtonClicked}
-        handleUserButtonClick={handleUserButtonClick}/>
+        <VerticalToggleButtons
+          activeButton={activeButton}
+          handleButtonChange={handleButtonChange}
+        />
+        <FixedHeaderTable activeButton={activeButton} /> 
         <input
           type="search"
           className="searchContainer__Field-Input"
-          placeholder={placeholder} // Utiliza el placeholder dinámico
+          placeholder={activeButton === "books" ? "Búsqueda de libro por título, autor o ISBN" : "Buscar socio por nombre, apellido, nº de socio"}
         />
         <button className="searchContainer__Field-Button">
           <img src="/src/assets/searchIcon.svg" alt="búsqueda icono" />
