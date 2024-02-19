@@ -52,7 +52,10 @@ export const Searcher = () => {
         </div>
         </form>
       </section>
-      <FixedHeaderTable activeButton={activeButton} searchResults={searchResults} /> Pasa los resultados de la búsqueda como una prop
+      <FixedHeaderTable
+        activeButton={activeButton}
+        searchResults={searchResults}
+        />
     </>
   )
 }

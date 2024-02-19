@@ -71,7 +71,7 @@ function FixedHeaderTable({ activeButton }) {
                       <div className="status-container">
                         <div className={`status-circle ${row.status === "Disponible" ? "available" : "not-available"}`}></div>
                         {row.status === "Disponible" || row.status === "Devolución" ? (
-                          <button onClick={() => window.location.href = row.status === "Disponible" ? "http://localhost:9000/prestamo/{id}" : "http://localhost:9000/devolucion-ok/{id}"}>
+                          <button onClick={() => window.location.href = row.status === "Disponible" ? `http://localhost:5173/prestamo/${row.idBooks}` : `http://localhost:5173/devolucion-ok/${row.idBooks}`}>
                             {row.status}
                           </button>
                         ) : (
