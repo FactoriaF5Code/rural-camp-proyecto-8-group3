@@ -6,7 +6,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import './NewMember.css';
 
 export const NewMemberOk = () => {
-  const { memberId } = useParams();
+  const { idMembers } = useParams();
 
   return (
     <>
@@ -15,7 +15,7 @@ export const NewMemberOk = () => {
         <UsersSearcher />
         <CheckCircleIcon className='newMember__checkIcon' />
         <p className="newMember__alert">Usuario creado correctamente con nº de socio:</p>
-        <p className="newMember__userNumber">{memberId}</p>
+        <p className="newMember__userNumber">{idMembers}</p>
         <NewMemberButton />
       </section>
     </>

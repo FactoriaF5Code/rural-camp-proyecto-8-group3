@@ -16,7 +16,7 @@ export const FormMembers = () => {
 
   const handleNewMember = async () => {
     try {
-      const memberId = await postMembers(newMember);
+      const idMembers = await postMembers(newMember);
       setNewMember({
         name: "",
         lastName: "",
@@ -25,7 +25,7 @@ export const FormMembers = () => {
       });
 
     
-      navigate(`/nuevo-socio-ok/${memberId}`);
+      navigate(`/nuevo-socio-ok/${idMembers}`);
     } catch (error) {
       console.error("Error:", error);
       

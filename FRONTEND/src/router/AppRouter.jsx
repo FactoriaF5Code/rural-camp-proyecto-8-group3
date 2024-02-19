@@ -15,7 +15,7 @@ export const AppRouter = () => {
         <Route path='/prestamo' element={<Lending />} />
         <Route path='/prestamo-ok' element={<LendingOk />} />
         <Route path='/nuevo-socio' element={<NewMember />} />
-        <Route path='/nuevo-socio-ok/:memberId' element={<NewMemberOk />} />
+        <Route path='/nuevo-socio-ok/:idMembers' element={<NewMemberOk />} />
         <Route path='/devolucion-ok' element={<ReturnOk />} />
       </Routes>
     </BrowserRouter>

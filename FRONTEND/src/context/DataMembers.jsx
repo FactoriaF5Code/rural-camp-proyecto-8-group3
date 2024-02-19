@@ -17,7 +17,7 @@ export const DataMembersProvider = ({ children }) => {
       if (response.status === 201 || response.status === 200 || response.status === 204) {
         console.log("Miembro agregado con éxito");
         setNeedsReload(true);
-        return response.data.idMember; 
+        return response.data.idMembers; 
       } else {
         console.error("Error al agregar socio. Detalles:", response.data);
       }
