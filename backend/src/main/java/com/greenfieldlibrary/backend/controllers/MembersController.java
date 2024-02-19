@@ -37,7 +37,9 @@ public class MembersController {
         Optional<Members> member = repository.findById(id);
         if (member.isPresent()) {
             Members existingMember = member.get();
-            MembersResponse membersResponse = new MembersResponse(existingMember.getIdMember(), existingMember.getName(), existingMember.getLastName(), existingMember.getPhone(), existingMember.getEmail());
+            MembersResponse membersResponse = new MembersResponse(existingMember.getIdMember(),
+                    existingMember.getName(), existingMember.getLastName(), existingMember.getPhone(),
+                    existingMember.getEmail());
             return ResponseEntity.ok(membersResponse);
         } else {
             return ResponseEntity.notFound().build();
