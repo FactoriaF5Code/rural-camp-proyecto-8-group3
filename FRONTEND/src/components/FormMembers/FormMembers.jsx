@@ -24,11 +24,9 @@ export const FormMembers = () => {
         phone: "",
       });
 
-    
       navigate(`/nuevo-socio-ok/${idMembers}`);
     } catch (error) {
       console.error("Error:", error);
-      
     }
   };
 
@@ -45,7 +43,9 @@ export const FormMembers = () => {
             name="name"
             placeholder="Nombre"
             value={newMember.name}
-            onChange={(e) => setNewMember({ ...newMember, name: e.target.value })}
+            onChange={(e) =>
+              setNewMember({ ...newMember, name: e.target.value })
+            }
             required
           />
 
@@ -57,7 +57,9 @@ export const FormMembers = () => {
             name="lastName"
             placeholder="Apellidos"
             value={newMember.lastName}
-            onChange={(e) => setNewMember({ ...newMember, lastName: e.target.value })}
+            onChange={(e) =>
+              setNewMember({ ...newMember, lastName: e.target.value })
+            }
             required
           />
         </section>
@@ -72,7 +74,9 @@ export const FormMembers = () => {
               name="phone"
               placeholder="63352..."
               value={newMember.phone}
-              onChange={(e) => setNewMember({ ...newMember, phone: e.target.value })}
+              onChange={(e) =>
+                setNewMember({ ...newMember, phone: e.target.value })
+              }
               required
             />
           </div>
@@ -85,7 +89,9 @@ export const FormMembers = () => {
               name="email"
               placeholder="correo@correo.es"
               value={newMember.email}
-              onChange={(e) => setNewMember({ ...newMember, email: e.target.value })}
+              onChange={(e) =>
+                setNewMember({ ...newMember, email: e.target.value })
+              }
               required
             />
           </div>
@@ -94,7 +100,19 @@ export const FormMembers = () => {
         <button
           className="formContainer__button"
           type="button"
-          onClick={handleNewMember}
+          onClick={() => {
+            // Verificar si falta algún campo por rellenar
+            if (
+              newMember.name.trim() === "" ||
+              newMember.lastName.trim() === "" ||
+              newMember.phone.trim() === "" ||
+              newMember.email.trim() === ""
+            ) {
+              alert("Por favor, complete todos los campos del formulario.");
+              return; // Evitar que se ejecute handleNewMember si falta algún campo por rellenar
+            }
+            handleNewMember(); // Llamar a handleNewMember solo si todos los campos están completos
+          }}
         >
           Añadir Socio
         </button>

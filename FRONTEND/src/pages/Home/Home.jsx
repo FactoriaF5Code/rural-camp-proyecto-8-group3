@@ -1,13 +1,28 @@
+/* eslint-disable react/prop-types */
 import { Header } from "../../components/Header/Header"
 import { Searcher } from "../../components/Searcher/Searcher"
-import FixedHeaderTable from "../../components/Table/Table"
+import "../../components/Table/Table.css";
 
-export const Home = () => {
+
+export const Home = ({
+  searchTerm,
+  setSearchResults,
+  activeButton,
+  handleButtonChange,
+  setSearchTerm,
+  searchResults
+}) => {
   return (
     <>
       <Header />
-      <Searcher/>
-      <FixedHeaderTable />
+      <Searcher
+        searchTerm={searchTerm}
+        setSearchResults={setSearchResults}
+        activeButton={activeButton}
+        handleButtonChange={handleButtonChange}
+        setSearchTerm={setSearchTerm}
+        searchResults={searchResults}
+      />
     </>
   )
 }

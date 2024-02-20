@@ -1,6 +1,4 @@
-/* eslint-disable react/prop-types */
-import "./Table.css";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import {
   Table,
@@ -11,9 +9,14 @@ import {
   TableContainer,
   Paper,
 } from "@mui/material";
+import "./Table.css";
 
-function FixedHeaderTable({ activeButton, searchResults }) {
-  // const [data, setData] = useState([]);
+function FixedHeaderTable({
+  activeButton,
+  firstResult,
+  resultMembers
+}) {
+  const [data, setData] = useState([]);
   const [tableHeaders, setTableHeaders] = useState([]);
 
   useEffect(() => {
@@ -22,22 +25,14 @@ function FixedHeaderTable({ activeButton, searchResults }) {
         let response;
         if (activeButton === "books") {
           response = await axios.get("http://localhost:9000/books");
-          setTableHeaders([
-            "ID",
-            "Título",
-            "Autor",
-            "ISBN",
-            "Estado"
-          ]);
+          setTableHeaders(["ID", "ISBN", "Título", "Autor", "Estado"]);
         } else if (activeButton === "members") {
           response = await axios.get("http://localhost:9000/members");
-          setTableHeaders([
-            "ID",
-            "Nombre",
-            "Apellidos",
-            "Email",
-            "Teléfono"
-          ]);
+          setTableHeaders(["ID", "Nombre", "Apellidos", "Email", "Teléfono"]);
+        }
+
+        if (response && response.data) {
+          setData(response.data);
         }
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -47,40 +42,55 @@ function FixedHeaderTable({ activeButton, searchResults }) {
     fetchDataFromDatabase();
   }, [activeButton]);
 
+  const filteredData = firstResult ? data.filter(item => item.title === firstResult.title && item.author === firstResult.author) : [];
+  const filteredMemberData = resultMembers ? data.filter(item => item.name === resultMembers.name && item.LastName === resultMembers.LastName) : [];
+
   return (
     <div>
       <TableContainer component={Paper} className="table-container">
         <Table aria-label="fixed header table">
           <TableHead>
             <TableRow>
-              {tableHeaders.map(header => (
-                <TableCell key={header} className="table-cell-header">{header}</TableCell>
+              {tableHeaders.map((header) => (
+                <TableCell key={header} className="table-cell-header">
+                  {header}
+                </TableCell>
               ))}
             </TableRow>
           </TableHead>
           <TableBody>
-              {Array.isArray(searchResults) && searchResults.length > 0 && searchResults.map((row, index) => (
-
-              <TableRow key={index}>
-                {activeButton === "books" ? (
-                  <React.Fragment>
-                    <TableCell className="table-cell">{row.item.idBooks}</TableCell> {/* Accede a item.idBooks ya que searchResults contiene objetos con una estructura específica */}
-                    <TableCell className="table-cell">{row.item.title}</TableCell>
-                    <TableCell className="table-cell">{row.item.author}</TableCell>
-                    <TableCell className="table-cell">{row.item.isbn}</TableCell>
-                    <TableCell className="table-cell">{row.item.status}</TableCell>
-                  </React.Fragment>
-                ) : (
-                  <React.Fragment>
-                    <TableCell className="table-cell">{row.item.idMembers}</TableCell>
-                    <TableCell className="table-cell">{row.item.name}</TableCell>
-                    <TableCell className="table-cell">{row.item.lastName}</TableCell>
-                    <TableCell className="table-cell">{row.item.email}</TableCell>
-                    <TableCell className="table-cell">{row.item.phone}</TableCell>
-                  </React.Fragment>
-                )}
-              </TableRow>
-            ))}
+            {activeButton === "books" ? (
+              filteredData.map((row, index) => (
+                <TableRow key={index}>
+                  <TableCell className="table-cell">{row.idBooks}</TableCell>
+                  <TableCell className="table-cell">{row.isbn}</TableCell>
+                  <TableCell className="table-cell">{row.title}</TableCell>
+                  <TableCell className="table-cell">{row.author}</TableCell>
+                  <TableCell className={`table-cell ${row.status === "Disponible" ? "available" : "not-available"}`}>
+                    <div className="status-container">
+                      <div className={`status-circle ${row.status === "Disponible" ? "available" : "not-available"}`}></div>
+                      {row.status === "Disponible" || row.status === "Devolución" ? (
+                        <button onClick={() => window.location.href = row.status === "Disponible" ? `http://localhost:5173/prestamo/${row.idBooks}` : `http://localhost:5173/devolucion-ok/${row.idBooks}`}>
+                          {row.status}
+                        </button>
+                      ) : (
+                        <span>{row.status}</span>
+                      )}
+                    </div>
+                  </TableCell>
+                </TableRow>
+              ))
+            ) : (
+              filteredMemberData.map((row, index) => (
+                <TableRow key={index}>
+                  <TableCell className="table-cell">{row.idMember}</TableCell>
+                  <TableCell className="table-cell">{row.name}</TableCell>
+                  <TableCell className="table-cell">{row.lastName}</TableCell>
+                  <TableCell className="table-cell">{row.email}</TableCell>
+                  <TableCell className="table-cell">{row.phone}</TableCell>
+                </TableRow>
+              ))
+            )}
           </TableBody>
         </Table>
       </TableContainer>

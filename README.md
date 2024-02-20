@@ -10,11 +10,16 @@
 | dev_frontend | Rama de desarrollo de frontend                                                        |
 | métodos      | Rama para implementar los métodos                                                     |
 
+<<<<<<< HEAD
 # Greenfield Library |
 
 | ![logotipo Greenfield Library](/FRONTEND/src/assets/greenfield-logo.png) |
 
 # Descripción del proyecto
+=======
+# Greenfield Library
+![logotipo Greenfield Library](/FRONTEND/src/assets/greenfield-logo.png)
+>>>>>>> 6ed8a98ab81db5061d7c42719ccf544debe30cbf
 
 Nos han pedido que hagamos el software de gestión de la biblioteca local. Las primeras semanas del proyecto serán cruciales para su viabilidad.
 Empezaremos haciendo un sistema de gestión para el personal de la biblioteca, de modo que podamos gestionar inventario, socios y préstamos.
