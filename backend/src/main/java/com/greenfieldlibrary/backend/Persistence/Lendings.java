@@ -36,6 +36,14 @@ public class Lendings {
     public Lendings() {
     }
 
+    public Lendings(Integer id, Books book, Members member,
+            String dateLending, String dateReturn) {
+        this.id = id;
+        this.book = book;
+        this.member = member;
+        // this.dateLending=new Date(dateLending);
+    }
+
     public Integer getId() {
         return id;
     }
@@ -75,4 +83,5 @@ public class Lendings {
     public void setDataReturn(Date dataReturn) {
         this.dataReturn = dataReturn;
     }
+
 }
