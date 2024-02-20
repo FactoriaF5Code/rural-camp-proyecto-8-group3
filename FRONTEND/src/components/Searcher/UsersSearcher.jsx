@@ -11,7 +11,6 @@ export const UsersSearcher = () => {
         <PersonIcon className='userIcon' />
         </div>
       
-        {/* <VerticalToggleButtons /> */}
         <input
           type="search"
           className="userSearchContainer__Field-Input"
