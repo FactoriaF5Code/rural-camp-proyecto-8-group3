@@ -11,7 +11,7 @@
 | métodos  | Rama para implementar los métodos                                                     |
 
 # Greenfield Library
-![logotipo Greenfield Library](/FRONTEND/src/assets/logoGL.png)
+![logotipo Greenfield Library](/FRONTEND/src/assets/greenfield-logo.png)
 
 #  Descripción del proyecto
 Nos han pedido que hagamos el software de gestión de la biblioteca local. Las primeras semanas del proyecto serán cruciales para su viabilidad.

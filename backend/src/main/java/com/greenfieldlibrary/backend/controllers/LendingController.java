@@ -1,5 +1,6 @@
 package com.greenfieldlibrary.backend.controllers;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,12 +57,13 @@ public class LendingController {
     }
 
 
-<@GetMapping("/Lendings")
+@GetMapping("/Lendings")
 public List<LendingsResponse> showLendings() {
     List<LendingsResponse> lendings = new ArrayList<LendingsResponse>();
     List<Lendings> lendingsInDataBaseLendings = repository.findAll();
-    for (Lendings lending : lendingsInDataBaseLendings) {        lendings.add(new LendingsResponse(Lendings.getIdLendings(), lending.getBookId(), lending.getMemberId(), lending.getDataLending(), lending.getDataReturn()));
+    for (Lendings lending : lendingsInDataBaseLendings) { 
+    lendings.add(new LendingsResponse(lending.getIdLendings(), lending.getBookId(), lending.getMemberId(), lending.getDataLending(), lending.getDataReturn()));
     }
     return lendings;
-}
-}
+    }
+
